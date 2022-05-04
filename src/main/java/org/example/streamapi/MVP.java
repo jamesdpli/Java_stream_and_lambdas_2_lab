@@ -1,8 +1,10 @@
 package org.example.streamapi;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MVP {
 
@@ -28,14 +30,13 @@ public class MVP {
      */
     public List<Integer> returnEvenNumbers(List<Integer> numbers) {
         // Implement me :)
-        Predicate<Integer> evenOnly = (num) -> {
-            return num % 2 == 0;
-        };
-        numbers
+//      Predicate<Integer> evenOnly = (num) -> {
+//          return num % 2 == 0;
+//      };
+        return numbers
                 .stream()
-                .filter(evenOnly)
+                .filter(num -> num % 2 == 0)
                 .collect(Collectors.toList());
-        return null;
     }
 
     /*
@@ -43,7 +44,9 @@ public class MVP {
     */
     public int[] doubleInts(int[] numbers) {
         // Implement me :)
-        return null;
+        return Arrays.stream(numbers)
+                .map(num -> 2 * num)
+                .toArray();
     }
 
     /*
@@ -51,7 +54,10 @@ public class MVP {
      */
     public List<String> splitToAllCapsList(String input) {
         // Implement me :)
-        return null;
+        return Arrays.stream(input
+                .split(""))
+                .map(str -> str.toUpperCase())
+                .collect(Collectors.toList());
     }
 
     /*
