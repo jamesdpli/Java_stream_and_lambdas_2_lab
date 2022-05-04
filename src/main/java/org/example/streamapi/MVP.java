@@ -67,7 +67,12 @@ public class MVP {
     */
     public List<String> filterByFirstLetterAndOrder(List<String> list, String letter) {
         // Implement me :)
-        return null;
+        return list
+                .stream()
+                .filter(str -> str.startsWith(letter))
+                .sorted()
+                .map(str -> str.toUpperCase())
+                .collect(Collectors.toList());
     }
 
     /*
