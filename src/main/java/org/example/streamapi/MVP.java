@@ -82,6 +82,9 @@ public class MVP {
     */
     public List<String> filterWords(List<String> words, int maxLength, String firstLetter) {
         // Implement me :)
-        return null;
+        return words
+                .stream()
+                .filter(str -> str.length() < maxLength && str.startsWith(firstLetter))
+                .collect(Collectors.toList());
     }
 }
